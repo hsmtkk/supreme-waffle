@@ -15,13 +15,19 @@ spec:
               imagePullPolicy: Always
               env:
                 - name: USERNAME
-                  value: hoge
+                  valueFrom:
+                    secretKeyRef:
+                      name: supreme-waffle
+                      key: username
                 - name: PASSWORD
-                  value: hoge
+                  valueFrom:
+                    secretKeyRef:
+                      name: supreme-waffle
+                      key: password
                 - name: HOSTNAME
-                  value: hoge
+                  value: supwaf-alpha.ddns.net
                 - name: IP_ADDRESS
-                  value: hoge
+                  value: 20.89.107.128
           restartPolicy: OnFailure
 ---
 apiVersion: batch/v1
@@ -40,11 +46,17 @@ spec:
               imagePullPolicy: Always
               env:
                 - name: USERNAME
-                  value: hoge
+                  valueFrom:
+                    secretKeyRef:
+                      name: supreme-waffle
+                      key: username
                 - name: PASSWORD
-                  value: hoge
+                  valueFrom:
+                    secretKeyRef:
+                      name: supreme-waffle
+                      key: password
                 - name: HOSTNAME
-                  value: hoge
+                  value: supwaf-bravo.ddns.net
                 - name: IP_ADDRESS
-                  value: hoge
+                  value: 20.89.107.128
           restartPolicy: OnFailure
