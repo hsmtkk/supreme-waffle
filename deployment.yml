@@ -21,7 +21,7 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 80
-          startuProbe:
+          startupProbe:
             httpGet:
               path: /
               port: 80
@@ -56,7 +56,7 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 80
-          startuProbe:
+          startupProbe:
             httpGet:
               path: /
               port: 80
