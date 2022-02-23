@@ -1,0 +1,50 @@
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: supreme-waffle-alpha
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: silver-pancake
+              image: hsmtkk/silver-pancake:latest
+              imagePullPolicy: Always
+              env:
+                - name: USERNAME
+                  value: hoge
+                - name: PASSWORD
+                  value: hoge
+                - name: HOSTNAME
+                  value: hoge
+                - name: IP_ADDRESS
+                  value: hoge
+          restartPolicy: OnFailure
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: supreme-waffle-bravo
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: silver-pancake
+              image: hsmtkk/silver-pancake:latest
+              imagePullPolicy: Always
+              env:
+                - name: USERNAME
+                  value: hoge
+                - name: PASSWORD
+                  value: hoge
+                - name: HOSTNAME
+                  value: hoge
+                - name: IP_ADDRESS
+                  value: hoge
+          restartPolicy: OnFailure

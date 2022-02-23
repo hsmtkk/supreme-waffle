@@ -1,0 +1,70 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: supreme-waffle-alpha
+  labels:
+    app: supreme-waffle-alpha
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: supreme-waffle-alpha
+  template:
+    metadata:
+      labels:
+        app: supreme-waffle-alpha
+    spec:
+      containers:
+        - name: whoami
+          image: traefik/whoami:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          startuProbe:
+            httpGet:
+              path: /
+              port: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: supreme-waffle-bravo
+  labels:
+    app: supreme-waffle-bravo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: supreme-waffle-bravo
+  template:
+    metadata:
+      labels:
+        app: supreme-waffle-bravo
+    spec:
+      containers:
+        - name: whoami
+          image: traefik/whoami:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          startuProbe:
+            httpGet:
+              path: /
+              port: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80

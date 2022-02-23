@@ -1,0 +1,27 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: supreme-waffle
+spec:
+  rules:
+  - host: supwaf-alpha.ddns.net
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: supreme-waffle-alpha
+            port:
+              number: 80
+  - host: supwaf-bravo.ddns.net
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: supreme-waffle-bravo
+            port:
+              number: 80
